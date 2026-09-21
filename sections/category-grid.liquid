@@ -1,6 +1,7 @@
 <section class="category-grid">
   <div class="category-grid__container">
     <h2>{{ section.settings.title }}</h2>
+    <p>{{ section.settings.description }}</p>
     <div class="category-grid__items">
       {% for block in section.blocks %}
         <a href="{{block.settings.link}}" class="category-card">
@@ -26,6 +27,11 @@
         "id": "title",
         "label": "Heading",
         "default": "Shop Gaming Gear"
+      }, {
+        "type": "text",
+        "id": "description",
+        "label": "Description",
+        "default": "Explore our premium gaming equipment built for your next victory."
       }
     ],
 
@@ -52,20 +58,18 @@
       }
     ],
     "presets": [
-        {
-            "name": "Category Grid",
-            "blocks": [
-                {
-                    "type": "category"
-                },
-                {
-                    "type": "category"
-                },
-                {
-                    "type": "category"
-                }
-            ]
-        }
+      {
+        "name": "Category Grid",
+        "blocks": [
+          {
+            "type": "category"
+          }, {
+            "type": "category"
+          }, {
+            "type": "category"
+          }
+        ]
+      }
     ]
   }
 {% endschema %}

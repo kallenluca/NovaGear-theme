@@ -47,6 +47,7 @@ dialog {
 p {
   text-wrap: pretty;
 }
+
 p,
 h1,
 h2,
@@ -62,12 +63,12 @@ p:empty {
 }
 
 :is(p, h1, h2, h3, h4, h5, h6):first-child,
-:empty:first-child + :where(p, h1, h2, h3, h4, h5, h6) {
+:empty:first-child+ :where(p, h1, h2, h3, h4, h5, h6) {
   margin-block-start: 0;
 }
 
 :is(p, h1, h2, h3, h4, h5, h6):last-child,
-:where(p, h1, h2, h3, h4, h5, h6) + :has(+ :empty:last-child) {
+:where(p, h1, h2, h3, h4, h5, h6)+ :has(+ :empty:last-child) {
   margin-block-end: 0;
 }
 
@@ -92,10 +93,8 @@ body {
  * the entire viewport.
  */
 .shopify-section {
-  --content-width: min(
-    calc(var(--page-width) - var(--page-margin) * 2),
-    calc(100% - var(--page-margin) * 2)
-  );
+  --content-width: min(calc(var(--page-width) - var(--page-margin) * 2),
+      calc(100% - var(--page-margin) * 2));
   --content-margin: minmax(var(--page-margin), 1fr);
   --content-grid: var(--content-margin) var(--content-width) var(--content-margin);
 
@@ -107,12 +106,12 @@ body {
 }
 
 /* Child elements, by default, are constrained to the central column of the grid. */
-.shopify-section > * {
+.shopify-section>* {
   grid-column: 2;
 }
 
 /* Child elements that use the full-width utility class span the entire viewport. */
-.shopify-section > .full-width {
+.shopify-section>.full-width {
   grid-column: 1 / -1;
 }
 
@@ -179,7 +178,7 @@ body {
 
 .category-grid {
   padding: 80px 40px;
-  background: #ffffff;
+  background: #000000;
 }
 
 .category-grid__container {
@@ -191,12 +190,21 @@ body {
   margin-bottom: 40px;
   text-align: center;
   font-size: 40px;
-  font-weight: 800;
+  /* font-weight: 800; */
+  color: #ffffff;
+}
+
+.category-grid p {
+  margin-bottom: 40px;
+  text-align: center;
+  font-size: 24px;
+  color: #ffffff;
+  /* font-weight: 800; */
 }
 
 .category-grid__items {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 24px;
 }
 
@@ -204,19 +212,23 @@ body {
   position: relative;
   display: block;
   overflow: hidden;
-  min-height: 320px;
-  background: #111111;
+  min-height: 240px;
+  background: transparent;
   text-align: center;
   color: #ffffff;
   text-decoration: none;
-  border-radius: 8px;
 }
 
 .category-card img {
   width: 100%;
-  height: 320px;
-  object-fit: cover;
+  height: 160px;
+  object-fit: contain;
+  border-radius: 8px;
   transition: transform 0.4s ease;
+  background: linear-gradient(
+    rgba(133, 14, 14, 0.85),
+    transparent
+  )
 }
 
 .category-card h3 {
@@ -225,20 +237,21 @@ body {
   bottom: 0;
   left: 0;
   margin: 4px;
-  padding: 24px;
-  background: linear-gradient(
-    transparent,
-    rgba(0, 0, 0, 0.85)
-  );
-  font-size: 18px;
+  padding: 4px;
+  background: transparent;
+  font-size: 16px;
 }
 
 .category-card:hover img {
   transform: scale(1.05);
+  background: linear-gradient(
+    rgba(133, 14, 14, 0.85),
+    rgba(255, 0, 0, 0.1)
+  )
 }
 
 .category-card:hover h3 {
-  color:red;
+  color: rgba(133, 14, 14, 0.85);
   text-decoration: underline;
 }
 
