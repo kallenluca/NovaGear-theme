@@ -17,11 +17,17 @@
     "categories": {
       "type": "category-grid",
       "settings": {}
+    },
+
+    "featured_products":{
+      "type":"featured-products",
+      "settings": {}
     }
   },
 
   "order": [
     "hero",
-    "categories"
+    "categories",
+    "featured_products"
   ]
 }

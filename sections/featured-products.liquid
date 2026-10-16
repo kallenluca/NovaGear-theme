@@ -1,0 +1,47 @@
+<section class="featured-products">
+
+  <div class="featured-products__container">
+
+    <h2>{{ section.settings.title }}</h2>
+
+    {% if section.settings.collection != blank %}
+
+      <div class="featured-products__grid">
+
+        {% for product in section.settings.collection.products limit: 4 %}
+
+          {% render 'product-card', product: product %}
+
+        {% endfor %}
+
+      </div>
+
+    {% endif %}
+
+  </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "Featured Products",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Featured Gaming Gear"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Products"
+    }
+  ]
+}
+{% endschema %}
