@@ -42,6 +42,12 @@
     "password": "Password",
     "enter": "Enter"
   },
+  "products": {
+    "product": {
+      "add_to_cart": "Add to cart",
+      "sold_out": "Sold out"
+    }
+  },
   "search": {
     "title": "Search",
     "placeholder": "Search articles, pages, or products",
