@@ -1,19 +1,61 @@
-<a href="{{ product.url }}" class="product-card">
-  {% if product.featured_image %}
-    <img
-      src="{{ product.featured_image | image_url: width: 600 }}"
-      alt="{{ product.featured_image.alt | escape }}"
-      width="600" 
-      height="600"
-      loading="lazy"
-    >
-  {% endif %}
+{% assign secondary_image = product.images[1] %}
+{% assign current_variant = product.selected_or_first_available_variant %}
+
+<article class="product-card">
+  <div class="product-card__media">
+    <a href="{{ product.url }}" class="product-card__image-link">
+      {% if product.featured_image %}
+        <img
+          class="product-card__image"
+          src="{{ product.featured_image | image_url: width: 600 }}"
+          alt="{{ product.featured_image.alt | escape }}"
+          width="600"
+          height="600"
+          loading="lazy"
+        >
+      {% endif %}
+      {% if secondary_image %}
+        <img
+          class="product-card__image product-card__image--secondary"
+          src="{{ secondary_image | image_url: width: 600 }}"
+          alt="{{ secondary_image.alt | escape }}"
+          width="600"
+          height="600"
+          loading="lazy"
+          aria-hidden="true"
+        >
+      {% endif %}
+    </a>
+
+    <div class="product-card__quick-add">
+      {% form 'product', product %}
+        {% if current_variant %}
+          <input type="hidden" name="id" value="{{ current_variant.id }}">
+        {% endif %}
+        <button
+          type="submit"
+          name="add"
+          class="product-card__add-button"
+          {% unless product.available %}
+            disabled
+          {% endunless %}
+        >
+          {% if product.available %}
+            {{ 'products.product.add_to_cart' | t }}
+          {% else %}
+            {{ 'products.product.sold_out' | t }}
+          {% endif %}
+        </button>
+      {% endform %}
+    </div>
+  </div>
+
   <div class="product-card__content">
     <h3>
-      {{ product.title }}
+      <a href="{{ product.url }}">{{ product.title | escape }}</a>
     </h3>
     <div class="product-card__price">
       {{ product.price | money }}
     </div>
   </div>
-</a>
+</article>

@@ -6,7 +6,13 @@
       {% for block in section.blocks %}
         <a href="{{block.settings.link}}" class="category-card">
           {% if block.settings.image != blank %}
-            <img src="{{ block.settings.image | image_url: width: 600 }}" alt="{{ block.settings.title }}">
+            <img
+              src="{{ block.settings.image | image_url: width: 600 }}"
+              alt="{{ block.settings.title | escape }}"
+              width="{{ block.settings.image.width }}"
+              height="{{ block.settings.image.height }}"
+              loading="lazy"
+            >
 
           {% endif %}
           <h3>
