@@ -1,8 +1,8 @@
 # NovaGear Theme
 
-Modern Shopify storefront theme for premium gaming, tech, and lifestyle retail brands.
+A premium Shopify storefront theme for modern gaming, technology, and lifestyle retail brands.
 
-NovaGear is a clean, conversion-focused Shopify theme built to showcase products, highlight campaigns, and support a scalable storefront experience for merchants who want a polished digital presence without sacrificing flexibility. The codebase follows Shopify’s recommended architecture and is organized for easy customization, section-based editing, and long-term maintainability.
+NovaGear is a clean, conversion-focused Shopify theme designed to showcase products, support promotional campaigns, and provide a scalable foundation for merchants seeking a refined digital storefront. Built around Shopify’s recommended architecture, the project emphasizes maintainability, section-based customization, and a professional e-commerce experience.
 
 <p align="center">
   <a href="./LICENSE.md"><img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License"></a>
@@ -10,48 +10,48 @@ NovaGear is a clean, conversion-focused Shopify theme built to showcase products
 
 ## Overview
 
-NovaGear delivers a premium storefront foundation with:
+NovaGear provides a polished storefront structure with:
 
-- branded header and navigation structure
-- promotional hero banner for campaigns and seasonal offers
-- collection-driven featured product sections
-- reusable product card components with pricing and quick add support
-- theme-wide typography, spacing, and color configuration
-- modular Shopify sections designed for merchants and developers
-- responsive storefront layout focused on product discovery and conversion
+- a branded header and navigation system
+- a high-impact hero banner for campaigns and seasonal promotions
+- featured collection sections for merchandising priority products
+- reusable product cards with product pricing and quick-add functionality
+- customizable typography, spacing, and color settings
+- modular Shopify sections built for flexible storefront management
+- a responsive layout optimized for product discovery and conversion
 
-## Business and technical goals
+## Business and technical objectives
 
-This project is designed to help teams:
+The theme is designed to help teams:
 
-- launch a polished storefront quickly
-- customize experiences through the Shopify theme editor
-- reuse product and layout patterns across multiple pages
-- maintain a scalable and structured theme architecture
-- adapt the storefront for gaming gear, accessories, electronics, and lifestyle products
+- launch a premium storefront quickly
+- tailor the experience through the Shopify theme editor
+- reuse common storefront patterns across multiple pages
+- maintain a clean and scalable theme architecture
+- adapt the brand for gaming, accessories, electronics, and lifestyle product catalogs
 
 ## Stack and tooling
 
-NovaGear is built using the standard Shopify theme stack:
+NovaGear is built with the standard Shopify theme stack, including:
 
-- Liquid templating
+- Liquid templates
 - JSON templates and schema configuration
 - Shopify section architecture
-- embedded styles and reusable snippets
-- Shopify CLI for local theme development, previewing, and deployment
+- reusable snippets and embedded styles
+- Shopify CLI for local development, preview, and deployment
 
 ## Repository structure
 
 ```bash
 .
-├── assets/                # Static assets such as CSS, images, icons, and fonts
-├── blocks/                # Reusable block definitions for section content
-├── config/                # Theme settings and configuration files
-├── layout/                # Main page wrappers and global theme structure
-├── locales/               # Translation and language JSON files
-├── sections/              # Modular storefront sections for homepage and other templates
-├── snippets/              # Reusable Liquid components and shared UI patterns
-├── templates/             # Product, collection, page, and storefront template definitions
+├── assets/                # Static assets including CSS, images, icons, and fonts
+├── blocks/                # Reusable block definitions for modular section content
+├── config/                # Theme configuration and schema settings
+├── layout/                # Global page wrappers and theme shell
+├── locales/               # Translation and locale files
+├── sections/              # Storefront sections for homepage and nested content
+├── snippets/              # Reusable UI components and shared logic
+├── templates/             # Product, collection, page, and storefront templates
 ├── README.md              # Project documentation
 ├── LICENSE.md             # MIT license
 ├── CONTRIBUTING.md        # Contribution guidance
@@ -59,45 +59,46 @@ NovaGear is built using the standard Shopify theme stack:
 └── config/settings_schema.json
 ```
 
-## Key storefront components
+## Core storefront components
 
 ### Header
-Implemented in [sections/header.liquid](sections/header.liquid), the header includes:
+Defined in [sections/header.liquid](sections/header.liquid), the header includes:
 
-- brand/logo navigation
+- brand navigation and home link
 - storefront menu links
-- customer account access
-- cart summary indicator with item count
+- customer account integration
+- cart indicator with item count
 
 ### Hero banner
-The homepage hero section in [sections/hero-banner.liquid](sections/hero-banner.liquid) supports:
+The hero section in [sections/hero-banner.liquid](sections/hero-banner.liquid) supports:
 
-- image-based promotional background
-- headline and supporting copy
+- background image selection
+- headline and descriptive copy
 - primary call-to-action button
-- merchant-controlled section settings
+- merchant-editable settings within the Shopify admin
 
 ### Featured products
-The featured products section in [sections/featured-products.liquid](sections/featured-products.liquid) allows merchants to showcase selected collections with a curated product layout.
+The featured products section in [sections/featured-products.liquid](sections/featured-products.liquid) enables merchants to highlight curated collections and promote key inventory.
 
 ### Product card
-Reusable product cards in [snippets/product-card.liquid](snippets/product-card.liquid) include:
+The reusable product card in [snippets/product-card.liquid](snippets/product-card.liquid) includes:
 
-- featured and secondary product images
-- product title and pricing
-- product URL linking
-- quick add access with variant selection
+- product image rendering
+- secondary image support
+- pricing display
+- direct product linking
+- quick-add functionality with variant handling
 
 ### Theme styling and configuration
-Global design tokens and theme configuration are managed in [layout/theme.liquid](layout/theme.liquid), [snippets/css-variables.liquid](snippets/css-variables.liquid), and [config/settings_schema.json](config/settings_schema.json).
+Theme-wide design tokens and settings are managed through [layout/theme.liquid](layout/theme.liquid), [snippets/css-variables.liquid](snippets/css-variables.liquid), and [config/settings_schema.json](config/settings_schema.json).
 
 ## Prerequisites
 
-Before working on the theme, make sure you have:
+Before working with the theme, ensure the following are available:
 
 - [Shopify CLI](https://shopify.dev/docs/api/shopify-cli)
-- a Shopify store connected to your development environment
-- optional editor support from the [Shopify Liquid extension](https://shopify.dev/docs/storefronts/themes/tools/shopify-liquid-vscode)
+- an active Shopify store for preview and deployment
+- optional editor support through the [Shopify Liquid extension](https://shopify.dev/docs/storefronts/themes/tools/shopify-liquid-vscode)
 
 ## Quick start
 
@@ -120,9 +121,9 @@ shopify login --store your-store-name.myshopify.com
 shopify theme dev
 ```
 
-This starts a local preview environment for testing and refining storefront changes in real time.
+This launches a local preview environment for testing and refining storefront changes in real time.
 
-### 4. Sync theme changes
+### 4. Sync changes with Shopify
 
 ```bash
 shopify theme pull
@@ -132,33 +133,33 @@ shopify theme push
 ## Customization guide
 
 ### Theme settings
-Theme-wide customizations such as fonts, page spacing, layout width, and color values are controlled through [config/settings_schema.json](config/settings_schema.json).
+Branding and layout controls such as typography, spacing, page width, and color values are managed through [config/settings_schema.json](config/settings_schema.json).
 
 ### Section-based editing
-Most visible storefront content is defined in [sections](sections). Each section includes a schema enabling merchant edits without direct code changes in the theme editor.
+Most storefront content is defined in [sections](sections), with each section exposing merchant-editable schema settings within the Shopify admin.
 
-### Adding new sections
+### Adding a new section
 To extend the storefront:
 
-1. create a new Liquid section in [sections](sections)
-2. define merchant-facing settings in the section schema
-3. render the section in the relevant template or group
-4. validate the result in the local preview
+1. create a new Liquid section under [sections](sections)
+2. define merchant-facing schema settings
+3. render the section in the relevant template or section group
+4. validate the experience in the local preview
 
 ### Template updates
-The main store templates live under [templates](templates). These files combine reusable sections to structure homepage, collection, product, cart, and other pages.
+Main storefront structures live under [templates](templates), where reusable sections are combined to build homepage, collection, product, cart, and supporting pages.
 
 ## Recommended development workflow
 
 1. connect the project to the target Shopify store
-2. run the theme in local preview mode
-3. edit the relevant section, snippet, or setting
-4. review the storefront in the browser
+2. run the theme in preview mode
+3. edit the relevant section, snippet, or settings file
+4. review changes in the browser
 5. push the updated theme when ready for QA or launch
 
 ## Deployment
 
-When the theme is ready for production, push it to Shopify and publish it from the admin panel:
+When the theme is ready for production, push it to Shopify and publish it from the admin:
 
 ```bash
 shopify theme push --allow-live --unpublished
@@ -168,7 +169,7 @@ Then publish the theme in the Shopify admin to make it live for customers.
 
 ## Contributing
 
-Contributions are welcome when they improve product presentation, maintain clean code quality, and align with the project’s storefront goals and design direction.
+Contributions are welcome when they improve storefront quality, maintain clean code standards, and align with the project’s branding and technical direction.
 
 Please review [CONTRIBUTING.md](CONTRIBUTING.md) before submitting changes.
 
@@ -178,4 +179,4 @@ This project is licensed under the [MIT License](LICENSE.md).
 
 ## Summary
 
-NovaGear is intentionally structured as a flexible, modular storefront foundation for modern commerce brands. It is built to support future expansion, campaign customization, and a more refined shopping experience without sacrificing maintainability or Shopify best practices.
+NovaGear is structured as a flexible and scalable storefront foundation for modern commerce brands. It is designed to support future expansion, campaign customization, and a refined shopping experience while maintaining Shopify best practices and code clarity.
