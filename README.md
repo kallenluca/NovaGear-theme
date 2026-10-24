@@ -1,160 +1,191 @@
-<h1 align="center" style="position: relative;">
-  <br>
-    <img src="./assets/shoppy-x-ray.svg" alt="logo" width="200">
-  <br>
-  Shopify Skeleton Theme
-</h1>
+# NovaGear Theme
 
-A minimal, carefully structured Shopify theme designed to help you quickly get started. Designed with modularity, maintainability, and Shopify's best practices in mind.
+NovaGear is a custom Shopify storefront theme designed for a modern gaming and tech retail brand. It combines a clean, conversion-focused storefront with modular sections, reusable snippets, and a structured theme architecture that makes it easy to adapt for branding, merchandising, and campaign content.
+
+This theme is built for fast storefront customization, strong product presentation, and a strong online shopping experience that matches a premium gaming audience.
 
 <p align="center">
   <a href="./LICENSE.md"><img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License"></a>
-  <a href="./actions/workflows/ci.yml"><img alt="CI" src="https://github.com/Shopify/skeleton-theme/actions/workflows/ci.yml/badge.svg"></a>
 </p>
+
+## Overview
+
+NovaGear includes:
+
+- A branded storefront layout with a simple header and navigation
+- A large promotional hero banner for campaigns and collections
+- Featured product sections powered by Shopify collections
+- Reusable product cards with pricing and quick add functionality
+- Global theme settings for typography, layout, colors, and page spacing
+- Modular, Shopify-native sections that are easy to extend
+- Responsive storefront structure designed for product discovery and conversions
+
+## Project goals
+
+The theme is structured to help a store owner or developer:
+
+- Launch a premium storefront quickly
+- Customize experiences via Shopify theme editor
+- Reuse sections and snippets across multiple templates
+- Maintain a clear component structure for future growth
+- Adapt the theme for gaming, peripherals, accessories, and lifestyle products
+
+## Tech stack
+
+This project is built with the standard Shopify theme stack:
+
+- Liquid templates
+- JSON templates
+- Shopify section schema configuration
+- CSS styling via embedded styles and theme assets
+- Shopify CLI for local theme development and deployment
+
+## Theme structure
+
+```bash
+.
+├── assets/              # Static assets such as CSS, images, icons, and fonts
+├── blocks/              # Reusable block definitions for section content
+├── config/              # Theme settings and configuration files
+├── layout/              # Main page wrappers such as the theme layout
+├── locales/             # Translation and locale JSON files
+├── sections/            # Full-width storefront sections used by templates
+├── snippets/            # Reusable Liquid snippets for shared UI patterns
+├── templates/           # Page templates for products, collections, home, and more
+├── README.md            # Project documentation
+├── LICENSE.md           # MIT license
+├── CONTRIBUTING.md      # Contribution guidelines
+└── config/settings_data.json
+```
+
+## Core storefront components
+
+### Header
+The header section is defined in [sections/header.liquid](sections/header.liquid) and provides:
+
+- Store branding and home link
+- Main navigation menu
+- Customer account link support
+- Cart icon with item count badge
+
+### Hero banner
+The homepage hero is defined in [sections/hero-banner.liquid](sections/hero-banner.liquid). It supports:
+
+- Background image selection
+- Headline and supporting text
+- CTA button with custom URL
+- Shopify section presets for easy reuse
+
+### Featured products
+The featured collection section is defined in [sections/featured-products.liquid](sections/featured-products.liquid). It allows merchants to select a collection and display up to several promoted products.
+
+### Product card snippet
+Reusable product cards are built in [snippets/product-card.liquid](snippets/product-card.liquid). They include:
+
+- Product image rendering
+- Secondary image support
+- Price display
+- Direct product URL
+- Quick add form with variant handling
+
+### Global theme styling
+Theme-wide tokens and styles are managed through [layout/theme.liquid](layout/theme.liquid) and [snippets/css-variables.liquid](snippets/css-variables.liquid). This keeps layout spacing, colors, and typography consistent across the storefront.
 
 ## Getting started
 
 ### Prerequisites
 
-Before starting, ensure you have the latest Shopify CLI installed:
+Before working on the theme, install:
 
-- [Shopify CLI](https://shopify.dev/docs/api/shopify-cli) – helps you download, upload, preview themes, and streamline your workflows
+- [Shopify CLI](https://shopify.dev/docs/api/shopify-cli)
+- A Shopify store where the theme can be previewed and published
+- Optional: [Shopify Liquid VS Code extension](https://shopify.dev/docs/storefronts/themes/tools/shopify-liquid-vscode) for improved editing support
 
-If you use VS Code:
-
-- [Shopify Liquid VS Code Extension](https://shopify.dev/docs/storefronts/themes/tools/shopify-liquid-vscode) – provides syntax highlighting, linting, inline documentation, and auto-completion specifically designed for Liquid templates
-
-### Clone
-
-Clone this repository using Git or Shopify CLI:
+### Clone the project
 
 ```bash
-git clone git@github.com:Shopify/skeleton-theme.git
-# or
-shopify theme init
+git clone <your-repository-url>
+cd NovaGear-theme
 ```
 
-### Preview
+### Log in to Shopify
 
-Preview this theme using Shopify CLI:
+```bash
+shopify login --store your-store-name.myshopify.com
+```
+
+### Run a local preview
 
 ```bash
 shopify theme dev
 ```
 
-## Theme architecture
+This starts a local preview that lets you test storefront updates live in a development environment.
+
+### Pull or push theme changes
+
+To sync the current theme with your Shopify store:
 
 ```bash
-.
-├── assets          # Stores static assets (CSS, JS, images, fonts, etc.)
-├── blocks          # Reusable, nestable, customizable UI components
-├── config          # Global theme settings and customization options
-├── layout          # Top-level wrappers for pages (layout templates)
-├── locales         # Translation files for theme internationalization
-├── sections        # Modular full-width page components
-├── snippets        # Reusable Liquid code or HTML fragments
-└── templates       # Templates combining sections to define page structures
+shopify theme pull
+shopify theme push
 ```
 
-To learn more, refer to the [theme architecture documentation](https://shopify.dev/docs/storefronts/themes/architecture).
+## Customization guide
 
-### Templates
+### Updating brand and colors
+The theme uses theme settings located in [config/settings_schema.json](config/settings_schema.json). You can adjust:
 
-[Templates](https://shopify.dev/docs/storefronts/themes/architecture/templates#template-types) control what's rendered on each type of page in a theme.
+- Typography
+- Page width
+- Page margins
+- Background and foreground colors
+- Input styling details
 
-The Skeleton Theme scaffolds [JSON templates](https://shopify.dev/docs/storefronts/themes/architecture/templates/json-templates) to make it easy for merchants to customize their store.
+### Editing sections
+Most storefront content is generated through section files in [sections](sections). Each section includes a schema, which lets merchants modify content through the Shopify theme editor without touching Liquid code.
 
-None of the template types are required, and not all of them are included in the Skeleton Theme. Refer to the [template types reference](https://shopify.dev/docs/storefronts/themes/architecture/templates#template-types) for a full list.
+### Adding new sections
+To add a new feature:
 
-### Sections
+1. Create a new Liquid section under [sections](sections)
+2. Add a schema block for merchant-controlled settings
+3. Render it on a template or section group
+4. Test the layout in the local preview
 
-[Sections](https://shopify.dev/docs/storefronts/themes/architecture/sections) are Liquid files that allow you to create reusable modules of content that can be customized by merchants. They can also include blocks which allow merchants to add, remove, and reorder content within a section.
+### Working with templates
+The main storefront pages live in [templates](templates), including product, collection, page, blog, cart, and homepage structures. These templates combine reusable sections and support store-level layouts.
 
-Sections are made customizable by including a `{% schema %}` in the body. For more information, refer to the [section schema documentation](https://shopify.dev/docs/storefronts/themes/architecture/sections/section-schema).
+## Recommended development workflow
 
-### Blocks
+1. Connect the repo to a Shopify store with Shopify CLI.
+2. Run the theme in preview mode.
+3. Update the relevant section or snippet.
+4. Review the storefront in the local preview.
+5. Push the theme when it is ready for testing or launch.
 
-[Blocks](https://shopify.dev/docs/storefronts/themes/architecture/blocks) let developers create flexible layouts by breaking down sections into smaller, reusable pieces of Liquid. Each block has its own set of settings, and can be added, removed, and reordered within a section.
+## Deployment
 
-Blocks are made customizable by including a `{% schema %}` in the body. For more information, refer to the [block schema documentation](https://shopify.dev/docs/storefronts/themes/architecture/blocks/theme-blocks/schema).
+When the theme is ready to go live:
 
-## Schemas
+```bash
+shopify theme push --allow-live --unpublished
+```
 
-When developing components defined by schema settings, we recommend these guidelines to simplify your code:
-
-- **Single property settings**: For settings that correspond to a single CSS property, use CSS variables:
-
-  ```liquid
-  <div class="collection" style="--gap: {{ block.settings.gap }}px">
-    ...
-  </div>
-
-  {% stylesheet %}
-    .collection {
-      gap: var(--gap);
-    }
-  {% endstylesheet %}
-
-  {% schema %}
-  {
-    "settings": [{
-      "type": "range",
-      "label": "gap",
-      "id": "gap",
-      "min": 0,
-      "max": 100,
-      "unit": "px",
-      "default": 0,
-    }]
-  }
-  {% endschema %}
-  ```
-
-- **Multiple property settings**: For settings that control multiple CSS properties, use CSS classes:
-
-  ```liquid
-  <div class="collection {{ block.settings.layout }}">
-    ...
-  </div>
-
-  {% stylesheet %}
-    .collection--full-width {
-      /* multiple styles */
-    }
-    .collection--narrow {
-      /* multiple styles */
-    }
-  {% endstylesheet %}
-
-  {% schema %}
-  {
-    "settings": [{
-      "type": "select",
-      "id": "layout",
-      "label": "layout",
-      "values": [
-        { "value": "collection--full-width", "label": "t:options.full" },
-        { "value": "collection--narrow", "label": "t:options.narrow" }
-      ]
-    }]
-  }
-  {% endschema %}
-  ```
-
-## CSS & JavaScript
-
-For CSS and JavaScript, we recommend using the [`{% stylesheet %}`](https://shopify.dev/docs/api/liquid/tags#stylesheet) and [`{% javascript %}`](https://shopify.dev/docs/api/liquid/tags/javascript) tags. They can be included multiple times, but the code will only appear once.
-
-### `critical.css`
-
-The Skeleton Theme explicitly separates essential CSS necessary for every page into a dedicated `critical.css` file.
+Then publish the theme in the Shopify admin to make it live on the store.
 
 ## Contributing
 
-We're excited for your contributions to the Skeleton Theme! This repository aims to remain as lean, lightweight, and fundamental as possible, and we kindly ask your contributions to align with this intention.
+Contributions are welcome as long as they improve the storefront experience, maintain code readability, and stay aligned with the project’s brand and theme architecture.
 
-Visit our [CONTRIBUTING.md](./CONTRIBUTING.md) for a detailed overview of our process, guidelines, and recommendations.
+Please review [CONTRIBUTING.md](CONTRIBUTING.md) before proposing changes.
 
 ## License
 
-Skeleton Theme is open-sourced under the [MIT](./LICENSE.md) License.
+This project is licensed under the [MIT License](LICENSE.md).
+
+## Notes
+
+NovaGear is intentionally structured as a flexible, modular storefront foundation. It is designed to be easy to extend for future campaigns, additional sections, and deeper e-commerce customization without sacrificing maintainability.
+
+If you are using this theme as a starter for a gaming or lifestyle brand, the current structure already supports scaling toward more advanced product merchandising, landing pages, and promotional themes.
